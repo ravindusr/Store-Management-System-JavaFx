@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="550.0" prefWidth="870.0" style="-fx-background-color: #f3f4f6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.loginFormController">
+<AnchorPane prefHeight="550.0" prefWidth="870.0" style="-fx-background-color: #f3f4f6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <children>
       <ImageView fitHeight="550.0" fitWidth="373.0">
          <image>
@@ -39,18 +40,18 @@
             <Font size="13.0" />
          </font>
       </Text>
-      <JFXTextField layoutX="461.0" layoutY="251.0" prefHeight="36.0" prefWidth="271.0" promptText="UserName">
+      <JFXTextField fx:id="txtUsername" layoutX="461.0" layoutY="251.0" prefHeight="36.0" prefWidth="271.0" promptText="UserName">
          <font>
             <Font size="15.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField layoutX="461.0" layoutY="322.0" prefHeight="36.0" prefWidth="271.0" promptText="Password">
+      <JFXPasswordField fx:id="txtPassword" layoutX="461.0" layoutY="322.0" prefHeight="36.0" prefWidth="271.0" promptText="Password">
          <font>
             <Font size="15.0" />
          </font>
       </JFXPasswordField>
       <JFXCheckBox checkedColor="#46acff" layoutX="461.0" layoutY="375.0" text="Rember Me." />
-      <JFXButton layoutX="443.0" layoutY="429.0" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: #54a0ff;" text="Login" textFill="#fcfcfc">
+      <JFXButton layoutX="443.0" layoutY="429.0" onAction="#btnLoginOnAction" prefHeight="25.0" prefWidth="361.0" style="-fx-background-color: #54a0ff;" text="Login" textFill="#fcfcfc">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -65,5 +66,10 @@
             <Font name="Gabriola" size="56.0" />
          </font>
       </Text>
+      <Label fx:id="lblMassage" alignment="TOP_CENTER" layoutX="456.0" layoutY="475.0" prefHeight="17.0" prefWidth="336.0" textFill="#ff1919">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
