@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashboardFormController">
+   <children>
+      <BorderPane style="-fx-background-color: #ecf0f1;">
+         <top>
+            <Pane prefHeight="49.0" prefWidth="1286.0" style="-fx-background-color: #f5f6fa;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="53.0" layoutY="3.0" text="Clothify Store (PVT) Ltd.">
+                     <font>
+                        <Font name="Myanmar Text Bold" size="18.0" />
+                     </font></Label>
+                  <ImageView fx:id="exit" fitHeight="29.0" fitWidth="30.0" layoutX="1257.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/boy.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/store.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="1040.0" layoutY="3.0" text="2020-10-10 ">
+                     <font>
+                        <Font name="Myanmar Text Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1149.0" layoutY="2.0" text="14:25:10">
+                     <font>
+                        <Font name="Myanmar Text Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <left>
+            <Pane prefHeight="711.0" prefWidth="282.0" style="-fx-background-color: #95afc0;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="751.0" prefWidth="285.0" spacing="20.0" style="-fx-background-color: #f5f6fa;">
+                     <padding>
+                        <Insets bottom="20.0" left="30.0" right="20.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <JFXButton onAction="#btnHomeOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Home" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="50.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="70.0" onAction="#btnItemOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Item Manager" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="148.0" onAction="#btnCustomerOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Customer Manager" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="226.0" onAction="#btnEmployeeOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Employee Manager" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="304.0" onAction="#btnSupplyOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Suppluer Manager" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="382.0" onAction="#btnOrderOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Order Manager" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="26.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/shopping-bag.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="460.0" onAction="#btnReportOnAction" prefHeight="38.0" prefWidth="219.0" stylesheets="@../css/style.css" text="Reports" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                        <JFXButton layoutX="40.0" layoutY="538.0" onAction="#btnReportOnAction" prefHeight="38.0" prefWidth="95.0" stylesheets="@../css/style.css" text="LogOut" textFill="WHITE">
+                           <font>
+                              <Font name="Gadugi Bold" size="17.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="100.0" />
+                           </VBox.margin>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane fx:id="contentArea" prefHeight="751.0" prefWidth="1018.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
