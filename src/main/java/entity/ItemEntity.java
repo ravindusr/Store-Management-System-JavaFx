@@ -1,15 +1,19 @@
-package dto;
+package entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
-public class Item {
+@Entity
+public class ItemEntity {
+    @Id
     private String id;
 
     private String name;
@@ -18,7 +22,7 @@ public class Item {
 
     private String category;
 
-    private Integer qty ;
+    private Double qty ;
 
-    private Double price;
+    private Integer price;
 }
