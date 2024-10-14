@@ -1,5 +1,6 @@
 package Repository;
 
+import Repository.Custom.Impl.CustomerDaoImpl;
 import Repository.Custom.Impl.ItemDaoImpl;
 import util.DaoType;
 
@@ -17,6 +18,7 @@ public class DaoFactory {
 
         switch (type){
             case ITEM : return (T)new ItemDaoImpl();
+            case CUSTOMER:return (T)new CustomerDaoImpl();
         }
         return null;
 

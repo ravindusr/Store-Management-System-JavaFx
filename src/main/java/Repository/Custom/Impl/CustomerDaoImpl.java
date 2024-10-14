@@ -1,10 +1,11 @@
 package Repository.Custom.Impl;
 
-import Repository.Custom.ItemDao;
+
+import Repository.Custom.CustomerDao;
 import db.DbConnection;
 import dto.Customer;
 import dto.Item;
-import entity.ItemEntity;
+import entity.CustomerEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -13,20 +14,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ItemDaoImpl implements ItemDao {
+
+public class CustomerDaoImpl implements CustomerDao {
     @Override
-    public boolean save(ItemEntity item) {
+    public boolean save(CustomerEntity customer) {
         try {
-            String SQL = "INSERT INTO Items values(?,?,?,?,?,?)";
+            String SQL = "INSERT INTO customers values(?,?,?,?,?)";
             Connection connection = DbConnection.getInstance().getConnection();
 
             PreparedStatement psTm = connection.prepareStatement(SQL);
-            psTm.setObject(1,item.getId());
-            psTm.setObject(2,item.getName());
-            psTm.setObject(3,item.getDescription());
-            psTm.setObject(4,item.getCategory());
-            psTm.setObject(5,item.getQty());
-            psTm.setObject(6,item.getPrice());
+            psTm.setObject(1,customer.getId());
+            psTm.setObject(2,customer.getName());
+            psTm.setObject(3,customer.getGender());
+            psTm.setObject(4,customer.getAddress());
+            psTm.setObject(5,customer.getContact());
 
             return psTm.executeUpdate() > 0;
 
@@ -36,20 +37,18 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public boolean update(ItemEntity item) {
-
-        String SQL = "UPDATE items SET name= ?, description= ?, category=?, quantity=?, price=? WHERE id=?";
+    public boolean update(CustomerEntity customer) {
+        String SQL = "UPDATE customers SET name= ?, gender= ?, address=?, contact=? WHERE id=?";
         try {
 
             Connection connection = DbConnection.getInstance().getConnection();
             PreparedStatement psTm = connection.prepareStatement(SQL);
 
-            psTm.setObject(1,item.getName());
-            psTm.setObject(2,item.getDescription());
-            psTm.setObject(3,item.getCategory());
-            psTm.setObject(4,item.getQty());
-            psTm.setObject(5,item.getPrice());
-            psTm.setObject(6,item.getId());
+            psTm.setObject(1,customer.getName());
+            psTm.setObject(2,customer.getGender());
+            psTm.setObject(3,customer.getAddress());
+            psTm.setObject(4,customer.getContact());
+            psTm.setObject(5,customer.getId());
 
             return psTm.executeUpdate() > 0;
 
@@ -60,8 +59,14 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public ObservableList<Item> findAll() {
-        ObservableList<Item> itemObservableList = FXCollections.observableArrayList();
-        String SQL = "SELECT * FROM items";
+        return null;
+    }
+
+
+    @Override
+    public ObservableList<Customer> findAllCustomers() {
+        ObservableList<Customer> customerObservableList = FXCollections.observableArrayList();
+        String SQL = "SELECT * FROM customers";
 
         try {
             Connection connection = DbConnection.getInstance().getConnection();
@@ -70,18 +75,17 @@ public class ItemDaoImpl implements ItemDao {
 
             while (resultSet.next()){
 
-                itemObservableList.add(
-                        new Item(
+                customerObservableList.add(
+                        new Customer(
                                 resultSet.getString(1),
                                 resultSet.getString(2),
                                 resultSet.getString(3),
                                 resultSet.getString(4),
-                                resultSet.getInt(5),
-                                resultSet.getDouble(6)
+                                resultSet.getString(5)
 
                         ));
             }
-            return itemObservableList;
+            return customerObservableList;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -89,14 +93,9 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public ObservableList<Customer> findAllCustomers() {
-        return null;
-    }
-
-    @Override
     public boolean delete(String id) {
         try {
-            return DbConnection.getInstance().getConnection().createStatement().executeUpdate("DELETE FROM items WHERE id ='" + id + "'") > 0;
+            return DbConnection.getInstance().getConnection().createStatement().executeUpdate("DELETE FROM customers WHERE id ='" + id + "'") > 0;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
