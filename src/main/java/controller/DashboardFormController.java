@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
@@ -37,6 +36,7 @@ public class DashboardFormController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadDateAndTime();
+
         try {
             Parent fxml = FXMLLoader.load(getClass().getResource("/view/home.fxml"));
             contentArea.getChildren().removeAll();
@@ -44,6 +44,7 @@ public class DashboardFormController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(DashboardFormController.class.getName()).log(Level.SEVERE,null,ex);
         }
+
     }
 
     @FXML
@@ -62,13 +63,17 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    void btnCustomerOnAction(ActionEvent event) {
-
+    void btnCustomerOnAction(ActionEvent event) throws IOException {
+        Parent fxml1 = FXMLLoader.load(getClass().getResource("/view/Customer_Mange_Form.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().addAll(fxml1);
     }
 
     @FXML
-    void btnEmployeeOnAction(ActionEvent event) {
-
+    void btnEmployeeOnAction(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/view/Employee_Manage_Form.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().addAll(fxml);
     }
 
     @FXML
@@ -90,9 +95,7 @@ public class DashboardFormController implements Initializable {
 
         Date date = new Date();
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
-
         lblDate.setText(f.format(date));
-//--------------------------------------------------------------
 
         Timeline timeline= new Timeline(new KeyFrame(Duration.ZERO, e->{
             LocalTime now = LocalTime.now();

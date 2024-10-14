@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
@@ -12,30 +11,36 @@
 <?import javafx.scene.text.Text?>
 
 <Pane prefHeight="751.0" prefWidth="1018.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.item.ItemFormManagerController">
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7dad9" height="288.0" layoutX="56.0" layoutY="90.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="906.0" />
       <JFXTextField fx:id="txtName" focusColor="#4e75eb" layoutX="352.0" layoutY="114.0" prefHeight="39.0" prefWidth="283.0" promptText="Item Name" unFocusColor="#4e75eb">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="13.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtDescription" focusColor="#4e75eb" layoutX="78.0" layoutY="194.0" prefHeight="39.0" prefWidth="381.0" promptText="Description" unFocusColor="#4e75eb" />
-      <JFXTextField fx:id="txtQty" focusColor="#4e75eb" layoutX="503.0" layoutY="194.0" prefHeight="39.0" prefWidth="191.0" promptText="QTY" unFocusColor="#4e75eb" />
-      <JFXComboBox fx:id="cmbCategory" layoutX="702.0" layoutY="114.0" prefHeight="39.0" prefWidth="245.0" promptText="Select Category" unFocusColor="#4e75eb" />
-      <JFXTextField fx:id="txtPrice" focusColor="#4e75eb" layoutX="738.0" layoutY="194.0" prefHeight="39.0" prefWidth="191.0" promptText="Price" unFocusColor="#4e75eb" />
+      <JFXTextField fx:id="txtDescription" focusColor="#4e75eb" layoutX="78.0" layoutY="194.0" prefHeight="39.0" prefWidth="381.0" promptText="Description" unFocusColor="#4e75eb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="txtQty" focusColor="#4e75eb" layoutX="503.0" layoutY="194.0" prefHeight="39.0" prefWidth="191.0" promptText="QTY" unFocusColor="#4e75eb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXTextField>
+      <JFXComboBox fx:id="cmbCategory" layoutX="702.0" layoutY="114.0" prefHeight="39.0" prefWidth="245.0" promptText="Select Category" styleClass="comboBox" stylesheets="@../css/style.css" unFocusColor="#4e75eb" />
+      <JFXTextField fx:id="txtPrice" focusColor="#4e75eb" layoutX="738.0" layoutY="194.0" prefHeight="39.0" prefWidth="191.0" promptText="Price" unFocusColor="#4e75eb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXTextField>
       <Text layoutX="380.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Manager" textAlignment="CENTER">
          <font>
             <Font name="Consolas Bold" size="39.0" />
          </font>
       </Text>
-      <JFXButton layoutX="848.0" layoutY="308.0" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0097e6;" styleClass="bu" stylesheets="@../css/style.css" text="ADD" textFill="WHITE" />
-      <JFXButton layoutX="734.0" layoutY="308.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #44bd32;" stylesheets="@../css/style.css" text="UPDATE" textFill="WHITE" />
-      <JFXButton layoutX="615.0" layoutY="308.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #e84118;" stylesheets="@../css/style.css" text="DELETE" textFill="WHITE" />
-      <JFXButton layoutX="493.0" layoutY="308.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #fbc531;" stylesheets="@../css/style.css" text="Clear" textFill="WHITE" />
-      <TableView fx:id="tblItems" layoutX="56.0" layoutY="426.0" prefHeight="275.0" prefWidth="906.0" stylesheets="@../css/style.css">
+      <JFXButton layoutX="830.0" layoutY="309.0" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0097e6;" styleClass="bu" stylesheets="@../css/style.css" text="ADD" textFill="WHITE" />
+      <JFXButton layoutX="716.0" layoutY="309.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #44bd32;" stylesheets="@../css/style.css" text="UPDATE" textFill="WHITE" />
+      <JFXButton layoutX="597.0" layoutY="309.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #e84118;" stylesheets="@../css/style.css" text="DELETE" textFill="WHITE" />
+      <JFXButton layoutX="475.0" layoutY="309.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #fbc531;" stylesheets="@../css/style.css" text="Clear" textFill="WHITE" />
+      <TableView fx:id="tblItems" layoutX="56.0" layoutY="429.0" prefHeight="275.0" prefWidth="906.0" stylesheets="@../css/style.css">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="116.0" text="ItemCode" />
             <TableColumn fx:id="colName" prefWidth="169.0" text="Item Name" />
@@ -45,6 +50,9 @@
             <TableColumn fx:id="colPrice" prefWidth="137.0" text="Price" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtID" editable="false" focusColor="#4e75eb" layoutX="78.0" layoutY="114.0" prefHeight="39.0" prefWidth="173.0" promptText="Item Code" unFocusColor="#4e75eb" />
+      <JFXTextField fx:id="txtID" alignment="CENTER" editable="false" focusColor="#4e75eb" layoutX="78.0" layoutY="114.0" prefHeight="39.0" prefWidth="173.0" promptText="Item Code" unFocusColor="#4e75eb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXTextField>
    </children>
 </Pane>
