@@ -1,13 +1,10 @@
 package service.Custom.Impl;
 
 import Repository.Custom.CustomerDao;
-import Repository.Custom.ItemDao;
 import Repository.DaoFactory;
 import dto.Customer;
-import dto.Item;
 import entity.CustomerEntity;
 
-import entity.ItemEntity;
 import javafx.collections.ObservableList;
 import org.modelmapper.ModelMapper;
 import service.Custom.CustomerService;
