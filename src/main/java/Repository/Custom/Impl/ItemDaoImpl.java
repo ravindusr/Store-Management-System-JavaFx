@@ -3,6 +3,7 @@ package Repository.Custom.Impl;
 import Repository.Custom.ItemDao;
 import db.DbConnection;
 import dto.Customer;
+import dto.Employee;
 import dto.Item;
 import entity.ItemEntity;
 import javafx.collections.FXCollections;
@@ -90,6 +91,11 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public ObservableList<Customer> findAllCustomers() {
+        return null;
+    }
+
+    @Override
+    public ObservableList<Employee> findAllEmployee() {
         return null;
     }
 

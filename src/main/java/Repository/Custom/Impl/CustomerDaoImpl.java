@@ -4,6 +4,7 @@ package Repository.Custom.Impl;
 import Repository.Custom.CustomerDao;
 import db.DbConnection;
 import dto.Customer;
+import dto.Employee;
 import dto.Item;
 import entity.CustomerEntity;
 import javafx.collections.FXCollections;
@@ -90,6 +91,11 @@ public class CustomerDaoImpl implements CustomerDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public ObservableList<Employee> findAllEmployee() {
+        return null;
     }
 
     @Override

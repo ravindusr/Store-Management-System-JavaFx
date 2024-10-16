@@ -15,6 +15,7 @@ public class Employee {
     private String empName;
     private String gender;
     private String address;
+    private String contact;
     private String nic ;
     private Double salary;
 }
