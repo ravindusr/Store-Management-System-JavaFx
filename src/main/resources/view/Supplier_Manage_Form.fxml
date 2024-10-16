@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="751.0" prefWidth="1018.0" style="-fx-background-color: #f1f2f6;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Supplier.SupplierFormController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7dad9" height="295.0" layoutX="56.0" layoutY="97.0" stroke="WHITE" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="906.0" />
+        <JFXTextField fx:id="txtSupName" focusColor="#4e75eb" layoutX="352.0" layoutY="114.0" prefHeight="39.0" prefWidth="283.0" promptText="Supplier Name" unFocusColor="#4e75eb">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </JFXTextField>
+        <JFXTextField fx:id="txtDescription" focusColor="#4e75eb" layoutX="79.0" layoutY="186.0" prefHeight="39.0" prefWidth="381.0" promptText="Description" unFocusColor="#4e75eb">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></JFXTextField>
+        <JFXTextField fx:id="txtContact" focusColor="#4e75eb" layoutX="502.0" layoutY="186.0" prefHeight="39.0" prefWidth="191.0" promptText="Contact Number" unFocusColor="#4e75eb">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></JFXTextField>
+        <JFXComboBox fx:id="cmbMeterial" layoutX="702.0" layoutY="114.0" prefHeight="39.0" prefWidth="245.0" promptText="Select Meterial" styleClass="comboBox" stylesheets="@../css/style.css" unFocusColor="#4e75eb" />
+        <Text layoutX="353.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier Manager" textAlignment="CENTER">
+            <font>
+                <Font name="Consolas Bold" size="39.0" />
+            </font>
+        </Text>
+        <JFXButton layoutX="830.0" layoutY="328.0" onAction="#btnAddOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0097e6;" styleClass="bu" stylesheets="@../css/style.css" text="ADD" textFill="WHITE" />
+        <JFXButton layoutX="716.0" layoutY="328.0" onAction="#btnUpdateOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #44bd32;" stylesheets="@../css/style.css" text="UPDATE" textFill="WHITE" />
+        <JFXButton layoutX="597.0" layoutY="328.0" onAction="#btnDeleteOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #e84118;" stylesheets="@../css/style.css" text="DELETE" textFill="WHITE" />
+        <JFXButton layoutX="475.0" layoutY="328.0" onAction="#btnClearOnAction" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #fbc531;" stylesheets="@../css/style.css" text="Clear" textFill="WHITE" />
+        <TableView fx:id="tblSuppliers" layoutX="56.0" layoutY="429.0" prefHeight="275.0" prefWidth="906.0" stylesheets="@../css/style.css">
+            <columns>
+                <TableColumn fx:id="colSupId" prefWidth="79.0" text="SupID" />
+                <TableColumn fx:id="colSupName" prefWidth="165.0" text="Supplier  Name" />
+                <TableColumn fx:id="colMeterial" prefWidth="173.0" text="Meterial" />
+                <TableColumn fx:id="colDescription" prefWidth="316.0" text="Description" />
+                <TableColumn fx:id="colContact" prefWidth="171.0" text="Contact Number" />
+            </columns>
+        </TableView>
+        <JFXTextField fx:id="txtSupId" alignment="CENTER" editable="false" focusColor="#4e75eb" layoutX="78.0" layoutY="114.0" prefHeight="39.0" prefWidth="173.0" promptText="Supplier ID" unFocusColor="#4e75eb">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font></JFXTextField>
+    </children>
+</Pane>

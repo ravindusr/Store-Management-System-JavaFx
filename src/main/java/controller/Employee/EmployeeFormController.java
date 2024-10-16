@@ -2,15 +2,21 @@ package controller.Employee;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class EmployeeFormController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EmployeeFormController implements Initializable {
 
     @FXML
-    private JFXComboBox<?> cmbGender;
+    private JFXComboBox<String> cmbGender;
 
     @FXML
     private TableColumn<?, ?> colAddress;
@@ -31,6 +37,9 @@ public class EmployeeFormController {
     private TableColumn<?, ?> colNic;
 
     @FXML
+    private TableColumn<?, ?> colSalary;
+
+    @FXML
     private TableView<?> tblCustomer;
 
     @FXML
@@ -47,6 +56,9 @@ public class EmployeeFormController {
 
     @FXML
     private JFXTextField txtxAddress;
+
+    @FXML
+    private JFXTextField txtSalary;
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
@@ -68,4 +80,15 @@ public class EmployeeFormController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ObservableList<String> genderList = FXCollections.observableArrayList();
+        genderList.add("Male");
+        genderList.add("Female");
+        genderList.add("Other");
+        cmbGender.setItems(genderList);
+
+    }
+
+    
 }
