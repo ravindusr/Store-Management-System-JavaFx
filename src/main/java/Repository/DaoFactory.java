@@ -3,6 +3,7 @@ package Repository;
 import Repository.Custom.Impl.CustomerDaoImpl;
 import Repository.Custom.Impl.EmployeeDaoImpl;
 import Repository.Custom.Impl.ItemDaoImpl;
+import Repository.Custom.Impl.SupplierDaoImpl;
 import util.DaoType;
 
 public class DaoFactory {
@@ -21,6 +22,7 @@ public class DaoFactory {
             case ITEM : return (T)new ItemDaoImpl();
             case CUSTOMER:return (T)new CustomerDaoImpl();
             case EMPLOYEE:return (T)new EmployeeDaoImpl();
+            case SUPPLIER:return (T)new SupplierDaoImpl();
         }
         return null;
 

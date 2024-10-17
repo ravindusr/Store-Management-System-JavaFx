@@ -87,8 +87,10 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    void btnSupplyOnAction(ActionEvent event) {
-
+    void btnSupplyOnAction(ActionEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/view/Supplier_Manage_Form.fxml"));
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().addAll(fxml);
     }
 
     private void loadDateAndTime(){

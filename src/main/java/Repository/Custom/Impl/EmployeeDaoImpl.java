@@ -5,6 +5,7 @@ import db.DbConnection;
 import dto.Customer;
 import dto.Employee;
 import dto.Item;
+import dto.Supplier;
 import entity.EmployeeEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -98,6 +99,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public ObservableList<Supplier> findAllSuppliers() {
+        return null;
     }
 
     @Override

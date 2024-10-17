@@ -5,6 +5,7 @@ import db.DbConnection;
 import dto.Customer;
 import dto.Employee;
 import dto.Item;
+import dto.Supplier;
 import entity.ItemEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -96,6 +97,11 @@ public class ItemDaoImpl implements ItemDao {
 
     @Override
     public ObservableList<Employee> findAllEmployee() {
+        return null;
+    }
+
+    @Override
+    public ObservableList<Supplier> findAllSuppliers() {
         return null;
     }
 

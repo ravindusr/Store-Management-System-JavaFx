@@ -4,6 +4,7 @@ import Repository.Custom.Impl.EmployeeDaoImpl;
 import service.Custom.Impl.CustomerServiceImpl;
 import service.Custom.Impl.EmployeeServiceImpl;
 import service.Custom.Impl.ItemServiceImpl;
+import service.Custom.Impl.SupplierServiceImpl;
 import util.ServiceType;
 
 public class ServiceFactory {
@@ -21,6 +22,7 @@ public class ServiceFactory {
             case ITEM : return (T) new ItemServiceImpl();
             case CUSTOMER:return (T)new CustomerServiceImpl();
             case EMPLOYEE:return (T)new EmployeeServiceImpl();
+            case SUPPLIER:return (T)new SupplierServiceImpl();
 
         }
         return null;
