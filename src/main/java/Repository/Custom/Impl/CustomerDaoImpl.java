@@ -3,13 +3,11 @@ package Repository.Custom.Impl;
 
 import Repository.Custom.CustomerDao;
 import db.DbConnection;
-import dto.Customer;
-import dto.Employee;
-import dto.Item;
-import dto.Supplier;
+import dto.*;
 import entity.CustomerEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import util.CrudUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -105,6 +103,31 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
+    public Customer searchCustomer(String name) {
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM customers WHERE name=?", name);
+
+            while (resultSet.next()){
+                return new Customer(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5)
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
+    public Item searchItem(String name) {
+        return null;
+    }
+
+    @Override
     public boolean delete(String id) {
         try {
             return DbConnection.getInstance().getConnection().createStatement().executeUpdate("DELETE FROM customers WHERE id ='" + id + "'") > 0;
@@ -113,4 +136,11 @@ public class CustomerDaoImpl implements CustomerDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public boolean updatestock(OrderDetail orderDetail) {
+        return false;
+    }
+
+
 }

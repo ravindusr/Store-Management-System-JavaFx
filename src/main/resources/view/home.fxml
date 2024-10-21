@@ -1,11 +1,186 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<Pane prefHeight="751.0" prefWidth="1018.0" style="-fx-background-color: #9c88ff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.homecontroller">
+<Pane prefHeight="751.0" prefWidth="1018.0" style="-fx-background-color: #f1f2f6;" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Home.homecontroller">
    <children>
-      <Button layoutX="256.0" layoutY="153.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="168.0" text="Button" />
+      <Text layoutX="30.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place Orders" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfe6e9" height="291.0" layoutX="22.0" layoutY="99.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 70; -fx-arc-height: 70;" width="378.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfe6e9" height="291.0" layoutX="421.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 70; -fx-arc-height: 70;" width="378.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dfe6e9" height="291.0" layoutX="818.0" layoutY="97.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-width: 70; -fx-arc-height: 70;" width="178.0">
+         <effect>
+            <DropShadow />
+         </effect></Rectangle>
+      <JFXComboBox fx:id="cmbCustomer" layoutX="43.0" layoutY="138.0" prefHeight="34.0" prefWidth="209.0" promptText="Select Customer" styleClass="comboBox" />
+      <JFXButton layoutX="286.0" layoutY="141.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="76.0" style="-fx-background-color: #f1f2f6;" stylesheets="@../css/style.css" text="Search" />
+      <Text layoutX="52.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Details" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblCustomerID" layoutX="144.0" layoutY="194.0" text="001">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Text layoutX="43.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer ID :" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtCustomerName" layoutX="45.0" layoutY="227.0" prefHeight="31.0" prefWidth="178.0" promptText="Customer Name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" layoutX="45.0" layoutY="331.0" prefHeight="31.0" prefWidth="331.0" promptText="Address">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContact" layoutX="45.0" layoutY="276.0" prefHeight="31.0" prefWidth="178.0" promptText="Contact Number">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Text layoutX="446.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Details" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmbItems" layoutX="446.0" layoutY="156.0" prefHeight="34.0" prefWidth="209.0" promptText="Select Items" styleClass="comboBox" />
+      <JFXButton layoutX="695.0" layoutY="158.0" prefHeight="34.0" prefWidth="76.0" style="-fx-background-color: #f1f2f6;" stylesheets="@../css/style.css" text="Search" />
+      <JFXTextField fx:id="txtQty" layoutX="630.0" layoutY="282.0" prefHeight="31.0" prefWidth="130.0" promptText="Qty">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="682.0" layoutY="332.0" onAction="#btnAddtoCartOnAction" prefHeight="34.0" prefWidth="96.0" style="-fx-background-color: #f1f2f6;" stylesheets="@../css/style.css" text="Add To Cart " />
+      <Text layoutX="873.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Summery" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="830.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total : " textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblTotal" layoutX="890.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="830.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Count : " textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblItemCount" layoutX="940.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtDiscount" layoutX="831.0" layoutY="253.0" prefHeight="31.0" prefWidth="120.0" promptText="Add Discount">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Text layoutX="821.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total With Discount" textAlignment="CENTER" wrappingWidth="171.6201171875">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="846.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rs : " textAlignment="CENTER" wrappingWidth="58.166015625">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tblCart" layoutX="43.0" layoutY="431.0" prefHeight="275.0" prefWidth="843.0" stylesheets="@../css/style.css">
+         <columns>
+            <TableColumn fx:id="colItemCode" prefWidth="129.0" text="Item Code" />
+            <TableColumn fx:id="colItemName" prefWidth="301.0" text="Item Name" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="146.0" text="UnitPrice" />
+            <TableColumn fx:id="colQty" prefWidth="126.0" text="Qty" />
+            <TableColumn fx:id="colTotal" prefWidth="139.0" text="Total" />
+         </columns>
+      </TableView>
+      <JFXButton layoutX="896.0" layoutY="606.0" onAction="#btnClearCartOnAction" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #2ed573;" stylesheets="@../css/style.css" text="Clear Cart" />
+      <JFXButton layoutX="896.0" layoutY="663.0" onAction="#btnCheckOutOnAction" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #2ed573;" stylesheets="@../css/style.css" text="Checkout" />
+      <JFXButton layoutX="896.0" layoutY="552.0" onAction="#btnRemoveOnAction" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #2ed573;" stylesheets="@../css/style.css" text="Remove Item" />
+      <Text layoutX="830.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID :" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblLastTotal" layoutX="901.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2000" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lbldate" layoutX="624.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order ID :" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblOrderID" layoutX="911.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="011" textAlignment="CENTER" wrappingWidth="76.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="446.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Code :" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblItemCode" layoutX="553.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="None" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="641.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblPrice" layoutX="704.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="None" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="446.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="In Stock :" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="lblStock" layoutX="531.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="None" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
    </children>
+   <effect>
+      <Glow />
+   </effect>
 </Pane>

@@ -2,10 +2,7 @@ package Repository.Custom.Impl;
 
 import Repository.Custom.EmployeeDao;
 import db.DbConnection;
-import dto.Customer;
-import dto.Employee;
-import dto.Item;
-import dto.Supplier;
+import dto.*;
 import entity.EmployeeEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -107,6 +104,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
+    public Customer searchCustomer(String name) {
+        return null;
+    }
+
+    @Override
+    public Item searchItem(String name) {
+        return null;
+    }
+
+    @Override
     public boolean delete(String id) {
         try {
             return DbConnection.getInstance().getConnection().createStatement().executeUpdate("DELETE FROM employee WHERE empId ='" + id + "'")>0;
@@ -114,4 +121,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public boolean updatestock(OrderDetail orderDetail) {
+        return false;
+    }
+
+
 }

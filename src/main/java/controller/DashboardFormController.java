@@ -94,7 +94,6 @@ public class DashboardFormController implements Initializable {
     }
 
     private void loadDateAndTime(){
-
         Date date = new Date();
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");
         lblDate.setText(f.format(date));

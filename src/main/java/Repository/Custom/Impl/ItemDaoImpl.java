@@ -2,13 +2,11 @@ package Repository.Custom.Impl;
 
 import Repository.Custom.ItemDao;
 import db.DbConnection;
-import dto.Customer;
-import dto.Employee;
-import dto.Item;
-import dto.Supplier;
+import dto.*;
 import entity.ItemEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import util.CrudUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -106,6 +104,32 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
+    public Customer searchCustomer(String name) {
+        return null;
+    }
+
+    @Override
+    public Item searchItem(String name) {
+        try {
+            ResultSet resultSet = CrudUtil.execute("SELECT * FROM items WHERE name=?", name);
+
+            while (resultSet.next()){
+                return new Item(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getInt(5),
+                        resultSet.getDouble(6)
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    @Override
     public boolean delete(String id) {
         try {
             return DbConnection.getInstance().getConnection().createStatement().executeUpdate("DELETE FROM items WHERE id ='" + id + "'") > 0;
@@ -114,4 +138,16 @@ public class ItemDaoImpl implements ItemDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public boolean updatestock(OrderDetail orderDetail) {
+        String SQL = "Update items SET qty=qty-? WHERE id=?";
+        try {
+            return CrudUtil.execute(SQL,orderDetail.getQty(),orderDetail.getItemCode());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 }

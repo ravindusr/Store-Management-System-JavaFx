@@ -1,6 +1,7 @@
 package service.Custom;
 
 import dto.Item;
+import dto.OrderDetail;
 import javafx.collections.ObservableList;
 import service.SuperService;
 
@@ -20,5 +21,5 @@ public interface ItemService extends SuperService {
 
     List<String> getAllItemCodes();
 
-    //boolean updateStock(List<OrderDetail> orderDetails);
+    boolean updateStock(List<OrderDetail> orderDetails);
 }

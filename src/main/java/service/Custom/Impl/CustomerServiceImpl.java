@@ -8,11 +8,21 @@ import entity.CustomerEntity;
 import javafx.collections.ObservableList;
 import org.modelmapper.ModelMapper;
 import service.Custom.CustomerService;
+import util.CrudUtil;
 import util.DaoType;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerServiceImpl implements CustomerService {
+
+    private static CustomerServiceImpl instance;
+
+    public CustomerServiceImpl(){}
+
+    public static CustomerServiceImpl getInstance(){return instance==null?instance=new CustomerServiceImpl():instance;}
     @Override
     public boolean addCustomer(Customer customer) {
         CustomerEntity entity = new ModelMapper().map(customer, CustomerEntity.class);
@@ -40,12 +50,21 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer searchCustomer(String id) {
-        return null;
+    public Customer searchCustomer(String name) {
+        CustomerDao daoType = DaoFactory.getInstance().getDaoType(DaoType.CUSTOMER);
+        return daoType.searchCustomer(name);
     }
+
 
     @Override
     public List<String> getAllCustomerIDs() {
-        return List.of();
+        ArrayList<String > customerIdsList = new ArrayList<>();
+        ObservableList<Customer> allCustomers = getAllCustomers();
+
+        allCustomers.forEach(obj->{
+            customerIdsList.add(obj.getName());
+        });
+
+        return customerIdsList;
     }
 }

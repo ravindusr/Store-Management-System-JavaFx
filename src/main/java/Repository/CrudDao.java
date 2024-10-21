@@ -1,9 +1,6 @@
 package Repository;
 
-import dto.Customer;
-import dto.Employee;
-import dto.Item;
-import dto.Supplier;
+import dto.*;
 import javafx.collections.ObservableList;
 
 public interface CrudDao <T> extends SuperDao{
@@ -13,5 +10,9 @@ public interface CrudDao <T> extends SuperDao{
     ObservableList<Customer> findAllCustomers();
     ObservableList<Employee>findAllEmployee();
     ObservableList<Supplier>findAllSuppliers();
+    Customer searchCustomer(String name);
+    Item searchItem(String name);
     boolean delete(String id);
+
+    boolean updatestock(OrderDetail orderDetail);
 }
